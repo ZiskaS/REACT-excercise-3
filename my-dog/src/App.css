@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+.phone-frame {
+  position: relative;
+  width: 600px; /* Adjust the width as needed */
+  height: 1200px; /* Adjust the height as needed */
+  background-color: #333; /* Background color for the phone frame */
+  border: 10px solid #222; /* Border for the phone frame */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add a shadow to the phone frame */
+  margin: 0 auto; /* Center the frame horizontally */
+  overflow: hidden; /* Hide content that goes beyond the frame */
+}
+
+.content {
+  position: absolute;
+  top: 30px; /* Adjust the top position to position the content within the frame */
+  left: 20px; /* Adjust the left position to position the content within the frame */
+  right: 20px; /* Adjust the right position to position the content within the frame */
+  bottom: 30px; /* Adjust the bottom position to position the content within the frame */
+  background-color: white; /* Background color for the content */
+  padding: 20px; /* Add padding to the content */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  overflow: auto; /* Add scrollbars if content overflows */
+}
