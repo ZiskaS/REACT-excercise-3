@@ -5,7 +5,8 @@ import './App.css';
 import NavBar from './components/NavBar';
 import PostList from './components/PostList';
 import Profile from './components/Profile';
-import SearchBar from './components/SearchBar'; // Import the SearchBar component.
+import SearchBar from './components/SearchBar'; 
+import Login from './components/Login'; 
 
 function PhoneFrame({ children }) {
   return (
@@ -32,6 +33,8 @@ function App() {
     setCurrentView('profile');
   };
   
+  const [authenticated, setAuthenticated] = useState(false);
+
   return (
     <PhoneFrame>
       <div className="container">
@@ -39,16 +42,18 @@ function App() {
           onLogoClick={handleLogoClick}
           onProfileClick={handleProfileClick}
         />
-        {/* Use the SearchBar component for search input */}
         <SearchBar value={searchValue} onSearch={handleSearch} />
-        {currentView === 'postList' ? (
-          <PostList searchValue={searchValue} />
+        {authenticated ? (
+          currentView === 'postList' ? (
+            <PostList searchValue={searchValue} />
+          ) : (
+            <Profile />
+          )
         ) : (
-          <Profile />
+          <Login onLogin={() => setAuthenticated(true)} />
         )}
       </div>
     </PhoneFrame>
   );
-}
-
-export default App;
+        }
+  export default App;  
